@@ -1,6 +1,11 @@
 import subprocess
 import sys
-subprocess.check_call([sys.executable, "-m", "pip", "install", "matplotlib"])
+
+try:
+    subprocess.check_call([sys.executable, "-m", "pip", "install", "matplotlib"])
+except subprocess.CalledProcessError:
+    print("Failed to install matplotlib, please ensure it is pre-installed.")
+
 
 import streamlit as st
 import pickle
