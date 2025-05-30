@@ -1,3 +1,7 @@
+import subprocess
+import sys
+subprocess.check_call([sys.executable, "-m", "pip", "install", "matplotlib"])
+
 import streamlit as st
 import pickle
 import pandas as pd
