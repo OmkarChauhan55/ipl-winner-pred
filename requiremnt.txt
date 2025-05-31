@@ -1,5 +1,0 @@
-# Trigger reinstall on Streamlit Cloud
-streamlit
-pandas
-matplotlib
-scikit-learn
