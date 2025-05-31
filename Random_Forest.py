@@ -1,16 +1,7 @@
-import subprocess
-import sys
-
-try:
-    subprocess.check_call([sys.executable, "-m", "pip", "install", "matplotlib"])
-except subprocess.CalledProcessError:
-    print("Failed to install matplotlib, please ensure it is pre-installed.")
-
-
 import streamlit as st
 import pickle
 import pandas as pd
-# import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt
 
 teams = ['Sunrisers Hyderabad',
          'Mumbai Indians',
@@ -120,32 +111,32 @@ if st.button('Predict Probability'):
         st.header(f"{batting_team} - {round(win * 100)}%")
         st.header(f"{bowling_team} - {round(loss * 100)}%")
 
-        # # Win probability pie chart
+        # Win probability pie chart
 
-        # labels = [batting_team, bowling_team]
-        # sizes = [round(win * 100), round(loss * 100)]
-        # colors = [team_colors.get(batting_team, '#00cc99'), team_colors.get(bowling_team, '#ff6666')]
+        labels = [batting_team, bowling_team]
+        sizes = [round(win * 100), round(loss * 100)]
+        colors = [team_colors.get(batting_team, '#00cc99'), team_colors.get(bowling_team, '#ff6666')]
 
-        # explode = (0.05, 0.05)  # Slightly separate slices
+        explode = (0.05, 0.05)  # Slightly separate slices
 
-        # fig, ax = plt.subplots(figsize=(6, 6))  # Default white background
+        fig, ax = plt.subplots(figsize=(6, 6))  # Default white background
 
-        # wedges, texts, autotexts = ax.pie(
-        #     sizes,
-        #     labels=labels,
-        #     autopct='%d%%',
-        #     startangle=90,
-        #     colors=colors,
-        #     explode=explode,
-        #     shadow=True,
-        #     textprops={'fontsize': 14, 'color': 'black'}  # Use black text for visibility on white
-        # )
+        wedges, texts, autotexts = ax.pie(
+            sizes,
+            labels=labels,
+            autopct='%d%%',
+            startangle=90,
+            colors=colors,
+            explode=explode,
+            shadow=True,
+            textprops={'fontsize': 14, 'color': 'black'}  # Use black text for visibility on white
+        )
 
-        # ax.axis('equal')  # Pie circle
-        # plt.setp(autotexts, size=14, weight="bold", color='black')  # Bold black percentage text
-        # ax.set_title("", fontsize=16, weight='bold', color='black')
+        ax.axis('equal')  # Pie circle
+        plt.setp(autotexts, size=14, weight="bold", color='black')  # Bold black percentage text
+        ax.set_title("", fontsize=16, weight='bold', color='black')
 
-        # # Remove transparency so background stays white
-        # # (No need for fig.patch.set_alpha or ax.set_facecolor here)
+        # Remove transparency so background stays white
+        # (No need for fig.patch.set_alpha or ax.set_facecolor here)
 
-        # st.pyplot(fig, clear_figure=True)
+        st.pyplot(fig, clear_figure=True)
