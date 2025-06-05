@@ -92,7 +92,7 @@ cities = [
 ]
 
 # Load trained prediction pipeline
-pipe = pickle.load(open('pipe1.pkl', "rb"))
+pipe = pickle.load(open('pipe1.zip', "rb"))
 
 # App Header
 st.markdown('<p class="header-text">IPL Win Predictor</p>', unsafe_allow_html=True)
